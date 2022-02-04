@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +12,8 @@ mixin LoaderMixin on GetxController {
                 child: CircularProgressIndicator(),
               ),
             ),
-            barrierDismissible: false);
+            barrierDismissible: false,
+            );
       } else {
         Get.back();
       }
