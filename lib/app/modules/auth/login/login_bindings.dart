@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
-import 'package:vakinha_burger_mobile/app/modules/auth/auth_repository.dart';
+import 'package:vakinha_burger_mobile/app/modules/auth/login/auth_repository.dart';
+import 'package:vakinha_burger_mobile/app/modules/auth/login/auth_repository_impl.dart';
 import 'package:vakinha_burger_mobile/app/modules/auth/login/login_controller.dart';
-import '../auth_repository_impl.dart';
+
 
 class LoginBindings implements Bindings {
   @override

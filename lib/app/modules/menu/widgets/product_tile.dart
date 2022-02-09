@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vakinha_burger_mobile/app/models/product_model.dart';
 import 'package:vakinha_burger_mobile/app/modules/splash/core/ui/formatter_helper.dart';
 import 'package:vakinha_burger_mobile/app/modules/splash/core/ui/vakinha_ui.dart';
@@ -11,7 +12,9 @@ class ProductTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.toNamed('/product_detail', arguments: product);
+      },
       child: Container(
         margin: const EdgeInsets.all(10),
         height: 80,
@@ -25,7 +28,7 @@ class ProductTile extends StatelessWidget {
                       bottomLeft: Radius.circular(10)),
                   image: DecorationImage(
                       image: NetworkImage(
-                        'http://dartweek.academiadoflutter.com.br/images${product.image}'),
+                          'http://dartweek.academiadoflutter.com.br/images${product.image}'),
                       fit: BoxFit.cover)),
             ),
             Expanded(
@@ -40,9 +43,7 @@ class ProductTile extends StatelessWidget {
                       product.name,
                       style: VakinhaUI.textBold,
                     ),
-                    Text(
-                      FormatterHelper.formatCurrency(product.price)
-                    ),
+                    Text(FormatterHelper.formatCurrency(product.price)),
                   ],
                 ),
               ),

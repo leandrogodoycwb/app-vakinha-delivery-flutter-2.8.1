@@ -2,11 +2,12 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:vakinha_burger_mobile/app/modules/auth/auth_repository.dart';
 import 'package:vakinha_burger_mobile/app/modules/splash/core/costants/constants.dart';
 import 'package:vakinha_burger_mobile/app/modules/splash/core/mixins/loader_mixin.dart';
 import 'package:vakinha_burger_mobile/app/modules/splash/core/mixins/messages_mixin.dart';
 import 'package:vakinha_burger_mobile/app/modules/splash/core/rest_client/rest_client.dart';
+
+import '../auth_repository.dart';
 
 class RegisterController extends GetxController
     with LoaderMixin, MessagesMixin {

@@ -7,6 +7,7 @@ import 'package:vakinha_burger_mobile/app/modules/splash/routes/splash_routers.d
 import 'app/modules/splash/core/ui/vakinha_ui.dart';
 import 'app/modules/splash/routes/auth_routers.dart';
 import 'app/modules/splash/routes/home_routers.dart';
+import 'app/modules/splash/routes/product_routers.dart';
 
 void main() async {
   await GetStorage.init();
@@ -26,6 +27,7 @@ class VakinhaBurgerMainApp extends StatelessWidget {
         ...SplashRouters.routers, 
         ...AuthRouters.routers,
         ...HomeRouters.routers,
+        ...ProductRouters.routers,
       ],
 
     );
