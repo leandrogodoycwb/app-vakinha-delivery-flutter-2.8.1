@@ -75,7 +75,7 @@ class _LoginPageState extends VakinhaState<LoginPage, LoginController> {
                         controller: _passwordEC,
                         validator: Validatorless.multiple([
                           Validatorless.required('Senha obrigatória'),
-                          Validatorless.email(
+                          Validatorless.min(6,
                               'Senha deve conter pelo menos 6 caracteres'),
                         ]),
                       ),
