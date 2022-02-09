@@ -5,6 +5,7 @@ import './product_detail_controller.dart';
 
 class ProductDetailPage extends GetView<ProductDetailController> {
   const ProductDetailPage({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
