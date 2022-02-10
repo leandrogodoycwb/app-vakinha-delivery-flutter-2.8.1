@@ -25,10 +25,10 @@ class ProductDetailPage extends GetView<ProductDetailController> {
               Container(
                 width: context.width,
                 height: context.heightTransformer(reducedBy: 60),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
                       image: NetworkImage(
-                          'https://s2.glbimg.com/w-RIgGFLB5I_mxAwM5G6exgRktE=/0x0:1080x608/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2021/5/K/EPOEiySp2bPFu4ciALlQ/capas-para-materias-gshow-home.jpg'),
+                          'http://dartweek.academiadoflutter.com.br/images${controller.product.image}'),
                       fit: BoxFit.cover),
                 ),
               ),
@@ -38,7 +38,7 @@ class ProductDetailPage extends GetView<ProductDetailController> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Text(
-                  'X-TUDAO',
+                  controller.product.name,
                   style: context.textTheme.headline4!.copyWith(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -46,30 +46,33 @@ class ProductDetailPage extends GetView<ProductDetailController> {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Text(
-                  'X-TUDAO',
+                  controller.product.description,
                   style: context.textTheme.bodyText2!,
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              PlusMinusBox(
-                //label: 'X-TUDAO',
-                minusCallBack: () {},
-                plusCallBack: () {},
-                price: 6.00,
-                quantity: 1,
-              ),
+              Obx(() {
+                return PlusMinusBox(
+                  minusCallBack: controller.removeProduct,
+                  plusCallBack: controller.addProduct,
+                  price: controller.product.price,
+                  quantity: controller.quantity,
+                );
+              }),
               const Divider(),
               ListTile(
                 title: const Text(
                   'Total',
                   style: VakinhaUI.textBold,
                 ),
-                trailing: Text(
-                  FormatterHelper.formatCurrency(200.0),
-                  style: VakinhaUI.textBold,
-                ),
+                trailing: Obx(() { 
+                        return Text(
+                                  FormatterHelper.formatCurrency(controller.totalPrice),
+                                  style: VakinhaUI.textBold,
+                                );
+                    }),
               ),
               const SizedBox(
                 height: 20,
