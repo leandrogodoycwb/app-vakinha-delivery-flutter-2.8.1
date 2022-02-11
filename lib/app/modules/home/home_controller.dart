@@ -3,14 +3,21 @@ import 'package:get/get.dart';
 import 'package:vakinha_burger_mobile/app/modules/menu/menu_page.dart';
 import 'package:vakinha_burger_mobile/app/modules/menu/menu_bindings.dart';
 import 'package:vakinha_burger_mobile/app/modules/splash/core/services/auth_service.dart';
+import 'package:vakinha_burger_mobile/app/modules/splash/core/services/shopping_card_service.dart';
 
 class HomeController extends GetxController {
   static const NAVIGATOR_KEY = 1;
+  final ShoppingCardService _shoppingCardService;
 
   final _tabIndex = 0.obs;
   final _tabs = ['/menu', '/order/shopping_card', '/exit'];
 
+  HomeController({required ShoppingCardService shoppinCardService})
+      : _shoppingCardService = shoppinCardService;
+
   int get tabIndex => _tabIndex.value;
+
+  int get totalProductsInShoppingCard => _shoppingCardService.totalProducts;
 
   set tabIndex(int index) {
     _tabIndex(index);

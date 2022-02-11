@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:vakinha_burger_mobile/app/modules/splash/core/ui/widgets/icon_badge.dart';
 import 'package:vakinha_burger_mobile/app/modules/splash/core/ui/widgets/vakinha_appbar.dart';
 import './home_controller.dart';
 
@@ -16,10 +17,15 @@ class HomePage extends GetView<HomeController> {
           currentIndex: controller.tabIndex,
           items: [
             const BottomNavigationBarItem(
-                icon: Icon(Icons.list), label: 'Produtos'),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart), label: 'Carrinho'),
-            const BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              label: 'Produtos'),
+            BottomNavigationBarItem(
+                icon: IconBadge(
+                icon: Icons.shopping_cart,
+                number: controller.totalProductsInShoppingCard,
+             ),
+              label: 'Carrinho'),
+           const BottomNavigationBarItem(
                 icon: Icon(Icons.exit_to_app), label: 'Sair'),
           ],
         );

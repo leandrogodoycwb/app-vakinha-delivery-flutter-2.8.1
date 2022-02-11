@@ -67,12 +67,12 @@ class ProductDetailPage extends GetView<ProductDetailController> {
                   'Total',
                   style: VakinhaUI.textBold,
                 ),
-                trailing: Obx(() { 
-                        return Text(
-                                  FormatterHelper.formatCurrency(controller.totalPrice),
-                                  style: VakinhaUI.textBold,
-                                );
-                    }),
+                trailing: Obx(() {
+                  return Text(
+                    FormatterHelper.formatCurrency(controller.totalPrice),
+                    style: VakinhaUI.textBold,
+                  );
+                }),
               ),
               const SizedBox(
                 height: 20,
@@ -81,8 +81,8 @@ class ProductDetailPage extends GetView<ProductDetailController> {
                 child: SizedBox(
                   width: context.widthTransformer(reducedBy: 10),
                   child: VakinhaButton(
-                    label: 'ADICIONAR',
-                    onPressed: () {},
+                    label: controller.alreadyAdded ? 'ATUALIZAR' : 'ADICIONAR',
+                    onPressed: controller.addProductInShoppingCard,
                   ),
                 ),
               )
