@@ -46,20 +46,19 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
                         ),
                       ),
                       Column(
-                        children: [
-                          Container(
+                        children: 
+                          controller.products.map((p) => Container(
                             margin: const EdgeInsets.all(10),
                             child: PlusMinusBox(
-                                label: 'X-salada',
+                                label: p.product.name,
                                 calculateTotal: true,
                                 elevated: true,
                                 backgroundColor: Colors.white,
-                                quantity: 2,
-                                price: 10,
+                                quantity: p.quantity,
+                                price: p.product.price,
                                 plusCallBack: () {},
                                 minusCallBack: () {}),
-                          )
-                        ],
+                          )).toList(),
                       ),
                       const SizedBox(
                         height: 10,
@@ -74,7 +73,7 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
                               style: context.textTheme.bodyText1
                                   ?.copyWith(fontWeight: FontWeight.bold),
                             ),
-                            Text(FormatterHelper.formatCurrency(200),
+                            Text(FormatterHelper.formatCurrency(controller.totalValue),
                                 style: context.textTheme.bodyText1
                                     ?.copyWith(fontWeight: FontWeight.bold))
                           ],
